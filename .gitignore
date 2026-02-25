@@ -1,0 +1,31 @@
+# Entorno virtual
+.venv/
+venv/
+
+# Archivos Python generados
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Configuración local / IDE
+.VSCode/
+.vscode/
+.idea/
+*.code-workspace
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Modelos y artefactos grandes
+backend/ml/phishing_model.joblib
+
+# Datos grandes descargados o generados
+CEAS_08.csv
+Enron.csv
+email_phishing_data.csv
+data/emails.csv
+
+# Logs temporales
+*.log
+

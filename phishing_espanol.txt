@@ -1,0 +1,17 @@
+Asunto: URGENTE: Su cuenta ha sido bloqueada, verifique ahora
+Cuerpo:
+> Estimado cliente,
+>
+> Hemos detectado actividad inusual en su cuenta y, por motivos de seguridad, ha sido BLOQUEADA temporalmente.
+>
+> Para evitar la suspensión definitiva de su acceso, debe verificar su identidad en las próximas 24 horas haciendo clic en el siguiente enlace seguro:
+>
+> https://seguridad-banco-verificacion.com/actualizar-datos
+>
+> Una vez que acceda, introduzca su usuario, contraseña y los datos de su tarjeta para confirmar que es el titular legítimo.
+>
+> Si no completa este proceso en el plazo indicado, su cuenta será cancelada de forma permanente y no podremos garantizar la seguridad de sus fondos.
+>
+> Atentamente,
+> Departamento de Seguridad
+> Banco Ejemplo

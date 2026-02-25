@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Detector de Phishing EN/ES</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <div class="header-left">
+          <h1>Detector de Phishing</h1>
+          <p>Analiza correos en inglés y español con explicación detallada.</p>
+        </div>
+        <div class="header-right">
+          <span class="badge">TFG</span>
+          <span class="badge badge-soft">EN / ES</span>
+        </div>
+      </header>
+
+      <main class="main">
+        <section class="panel panel-input">
+          <h2>Pegar texto de correo</h2>
+          <p class="panel-description">
+            Pega aquí el contenido del correo (asunto + cuerpo) y pulsa
+            <strong>Analizar</strong>.
+          </p>
+          <textarea
+            id="email-text"
+            class="textarea"
+            rows="10"
+            placeholder="Ejemplo:
+Asunto: Verifica tu cuenta ahora mismo
+
+Estimado usuario,
+Hemos detectado actividad sospechosa en su cuenta. Por favor haga clic en el siguiente enlace para verificar sus datos..."
+          ></textarea>
+          <button id="analyze-text-btn" class="button primary">Analizar texto</button>
+        </section>
+
+        <section class="panel panel-drop">
+          <h2>Subir archivos de correo</h2>
+          <p class="panel-description">
+            Arrastra y suelta ficheros <code>.txt</code>, <code>.eml</code> u otros, o haz clic para seleccionarlos.
+          </p>
+          <div id="dropzone" class="dropzone">
+            <p class="dropzone-title">Arrastra y suelta aquí</p>
+            <p class="dropzone-subtitle">o haz clic para seleccionar archivos</p>
+            <input id="file-input" type="file" multiple class="file-input" />
+          </div>
+          <button id="analyze-files-btn" class="button secondary">Analizar ficheros</button>
+          <div id="file-list" class="file-list"></div>
+        </section>
+
+        <section class="panel panel-results">
+          <h2>Resultados</h2>
+          <div id="results-placeholder" class="results-placeholder">
+            Introduce un correo o sube un fichero para ver aquí el análisis.
+          </div>
+          <div id="results-container" class="results-container hidden"></div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span>Proyecto TFG · Detector de phishing multilingüe</span>
+        <span id="api-status" class="api-status">API: sin comprobar</span>
+      </footer>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="./app.js"></script>
+  </body>
+  </html>
+

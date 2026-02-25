@@ -1,0 +1,16 @@
+Subject: Meeting reminder – Project status update
+Body:
+> Hi John,
+>
+> This is a quick reminder about our project status meeting scheduled for Thursday, March 5th at 10:00 AM via Teams.
+>
+> Agenda:
+> - Review completed tasks
+> - Discuss blockers and next steps
+> - Confirm deadlines for the next sprint
+>
+> If you need to reschedule, please let me know in advance.
+>
+> Best regards,
+> Laura
+> Project Manager

@@ -1,0 +1,18 @@
+Asunto: Confirmación de inscripción al curso de programación
+Cuerpo:
+> Hola Marta,
+>
+> Gracias por inscribirte en el curso “Introducción a la Programación en Python”.
+>
+> Te confirmamos que tu plaza ha sido reservada para las siguientes fechas:
+> - Inicio: 10 de abril de 2026
+> - Horario: martes y jueves, de 18:00 a 20:00 (hora peninsular)
+> - Modalidad: online (Zoom)
+>
+> Unos días antes del inicio recibirás un correo con el enlace de acceso a las sesiones y el material descargable.
+>
+> Si tienes cualquier duda, puedes escribirnos a formacion@academia-ejemplo.com.
+>
+> Un saludo,
+> Equipo de Formación
+> Academia Ejemplo

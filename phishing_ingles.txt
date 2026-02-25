@@ -1,0 +1,16 @@
+Subject: Important: Verify your account immediately
+Body:
+> Dear user,
+>
+> We noticed suspicious activity on your account and your access has been temporarily limited.
+>
+> To restore full access, please verify your account information immediately by clicking the secure link below:
+>
+> http://secure-login-update.example-support.com/verify
+>
+> You must confirm your username, password and payment details to prove that you are the legitimate owner.
+> Failure to do so within 12 hours will result in permanent closure of your account.
+>
+> Best regards,
+> Security Team
+> Online Services
