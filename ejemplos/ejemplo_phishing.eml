@@ -1,0 +1,17 @@
+From: security@paypa1-support.com
+To: usuario@gmail.com
+Reply-To: attacker@evil-domain.net
+Subject: Your account has been suspended - Verify immediately
+Content-Type: text/plain; charset=utf-8
+
+Dear Customer,
+
+We have detected suspicious activity on your PayPal account. Your account has been temporarily suspended.
+
+To restore access, you must verify your password and personal information immediately by clicking the link below:
+
+http://paypa1-support.com/verify/account?token=ABC123
+
+If you do not verify your account within 24 hours, it will be permanently closed.
+
+PayPal Security Team

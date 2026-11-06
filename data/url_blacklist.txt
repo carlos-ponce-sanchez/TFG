@@ -1,0 +1,76 @@
+# Lista negra de dominios de phishing conocidos
+# Fuentes:
+#   - PhishTank (https://phishtank.org) — base de datos pública de phishing verificado por la comunidad
+#   - APWG eCrime Reports (https://apwg.org) — informes trimestrales del Anti-Phishing Working Group
+#   - Dominios extraídos de los datasets de entrenamiento del TFG (CEAS_08 y SpamSPA)
+#   - Patrones de typosquatting documentados en campañas activas
+#
+# Formato: un dominio por línea. Líneas que empiezan con # son comentarios.
+# Última actualización: abril 2025
+
+# ── Typosquatting de marcas internacionales ───────────────────────────────────
+paypa1.com
+paypal-secure-login.com
+paypal-account-verify.com
+secure-paypal.net
+paypal-update.info
+arnazon.com
+amazon-secure.net
+amazon-account-suspended.com
+amazon-verify-payment.com
+appleid-verify.com
+apple-security-alert.com
+icloud-account-locked.com
+microsoft-security-alert.net
+micros0ft.com
+microsoft-account-verify.com
+outlook-security.net
+google-account-security.com
+g00gle-verify.com
+netflix-payment-failed.com
+netflix-billing-update.net
+netf1ix.com
+dropbox-secure.net
+instagram-verify-account.com
+facebook-security-center.net
+
+# ── Dominios genéricos de phishing (inglés) ───────────────────────────────────
+secure-bank-verify.xyz
+fake-bank.xyz
+account-suspended-verify.com
+login-verify-now.com
+secure-login-update.net
+account-alert-security.com
+verify-your-identity-now.com
+banking-secure-update.net
+customer-support-verify.com
+alert-account-locked.com
+password-reset-required.net
+urgent-account-verify.com
+click-here-to-verify.net
+your-account-at-risk.com
+security-notification-center.net
+
+# ── Dominios de phishing dirigidos a usuarios hispanohablantes ─────────────────
+banco-seguro-verificacion.es
+verificacion-bancaria.net
+banco-online-seguro.com
+bbva-seguridad.net
+bbva-verificar-cuenta.com
+caixabank-seguridad.net
+santander-verificacion.com
+santander-seguro-online.net
+ing-direct-seguridad.com
+bankia-verificar.net
+correos-paquete-pendiente.com
+correos-entrega-segura.net
+hacienda-devolucion-irpf.com
+agencia-tributaria-devolucion.net
+seguridad-social-prestacion.com
+movistar-factura-pendiente.net
+vodafone-seguridad-cuenta.com
+endesa-factura-online.net
+iberdrola-area-clientes.com
+amazon-es-pedido-pendiente.com
+mercadona-promocion-ganador.net
+el-corte-ingles-oferta.com

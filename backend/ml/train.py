@@ -9,6 +9,7 @@ from sklearn.metrics import classification_report
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
+from backend.ml.preprocessing import TextPreprocessor
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -29,23 +30,23 @@ def load_dataset() -> pd.DataFrame:
 
 
 def build_pipeline() -> Pipeline:
-    tfidf = TfidfVectorizer(
-        lowercase=True,
-        ngram_range=(1, 2),
-        max_features=50000,
-        sublinear_tf=True,
-    )
-
-    clf = LogisticRegression(
-        max_iter=2000,
-        class_weight="balanced",
-        n_jobs=-1,
-    )
-
     pipeline = Pipeline(
         steps=[
-            ("tfidf", tfidf),
-            ("clf", clf),
+            ("preprocessor", TextPreprocessor()),
+            ("tfidf", TfidfVectorizer(
+                lowercase=False,   # Ya viene en minúsculas del preprocesado
+                ngram_range=(1, 2),
+                max_features=20_000,  # Mismo que compare_models.py para consistencia
+                sublinear_tf=True,
+            )),
+            ("clf", LogisticRegression(
+                C=1.0,
+                max_iter=2000,
+                class_weight="balanced",
+                solver="saga",        # Mismo que compare_models.py; mejor para datasets grandes
+                n_jobs=-1,
+                random_state=42,
+            )),
         ]
     )
     return pipeline

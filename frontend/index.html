@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <title>Detector de Phishing EN/ES</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sistema de detección de phishing en correos electrónicos mediante IA y NLP. Soporta inglés y español. Proyecto TFG." />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='85'%3E🛡️%3C/text%3E%3C/svg%3E" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -19,9 +21,15 @@
         </div>
       </header>
 
-      <main class="main">
+      <nav class="nav-tabs">
+        <button class="tab-btn active" data-tab="analyzer">Analizador</button>
+        <button class="tab-btn" data-tab="history">Historial <span id="history-count-badge" class="history-count-badge hidden"></span></button>
+        <button class="tab-btn" data-tab="stats">Estadísticas del modelo</button>
+      </nav>
+
+      <main class="main" id="tab-analyzer">
         <section class="panel panel-input">
-          <h2>Pegar texto de correo</h2>
+          <h2><label for="email-text">Pegar texto de correo</label></h2>
           <p class="panel-description">
             Pega aquí el contenido del correo (asunto + cuerpo) y pulsa
             <strong>Analizar</strong>.
@@ -36,6 +44,13 @@ Asunto: Verifica tu cuenta ahora mismo
 Estimado usuario,
 Hemos detectado actividad sospechosa en su cuenta. Por favor haga clic en el siguiente enlace para verificar sus datos..."
           ></textarea>
+          <div class="example-row">
+            <span class="example-label">Ejemplos rápidos:</span>
+            <button class="example-btn" data-example="phishing_en">Phishing EN</button>
+            <button class="example-btn" data-example="legitimo_en">Legítimo EN</button>
+            <button class="example-btn" data-example="phishing_es">Phishing ES</button>
+            <button class="example-btn" data-example="legitimo_es">Legítimo ES</button>
+          </div>
           <button id="analyze-text-btn" class="button primary">Analizar texto</button>
         </section>
 
@@ -54,7 +69,10 @@ Hemos detectado actividad sospechosa en su cuenta. Por favor haga clic en el sig
         </section>
 
         <section class="panel panel-results">
-          <h2>Resultados</h2>
+          <div class="results-header">
+            <h2>Resultados</h2>
+            <button id="clear-btn" class="button clear-btn hidden">Limpiar</button>
+          </div>
           <div id="results-placeholder" class="results-placeholder">
             Introduce un correo o sube un fichero para ver aquí el análisis.
           </div>
@@ -62,14 +80,86 @@ Hemos detectado actividad sospechosa en su cuenta. Por favor haga clic en el sig
         </section>
       </main>
 
+      <section id="tab-history" class="history-section hidden">
+        <div class="history-header">
+          <h2 class="stats-title">Historial de análisis</h2>
+          <button id="history-clear-btn" class="button clear-btn hidden">Borrar historial</button>
+        </div>
+        <p class="history-description">Se guardan los últimos 10 análisis. Persisten aunque recargues la página.</p>
+        <div id="history-empty" class="history-empty">
+          Aún no has analizado ningún correo en esta sesión.
+        </div>
+        <div id="history-list" class="history-list hidden"></div>
+      </section>
+
+      <section id="tab-stats" class="stats-section hidden">
+        <div class="stats-loading" id="stats-loading">Cargando métricas...</div>
+        <div id="stats-content" class="hidden">
+
+          <div class="stats-block">
+            <h2 class="stats-title">Modelo activo — <span id="active-model-name"></span></h2>
+            <div id="active-metrics-grid" class="metrics-grid"></div>
+          </div>
+
+          <div class="stats-block">
+            <h2 class="stats-title">Comparativa de modelos</h2>
+            <div class="table-wrapper">
+              <table class="models-table" id="models-table">
+                <thead>
+                  <tr>
+                    <th>Modelo</th>
+                    <th>Accuracy</th>
+                    <th>Precisión (phishing)</th>
+                    <th>Recall (phishing)</th>
+                    <th>F1 (phishing)</th>
+                    <th>F1 macro</th>
+                    <th>Tiempo (s)</th>
+                  </tr>
+                </thead>
+                <tbody id="models-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="stats-block">
+            <h2 class="stats-title">Matrices de confusión</h2>
+            <div id="confusion-matrices" class="confusion-grid"></div>
+          </div>
+
+          <div class="stats-block">
+            <h2 class="stats-title">Gráficas de evaluación</h2>
+            <div class="charts-grid">
+              <figure class="chart-card">
+                <img src="/graficas/01_comparativa_metricas.png" alt="Comparativa de métricas" />
+                <figcaption>Comparativa de métricas por modelo</figcaption>
+              </figure>
+              <figure class="chart-card">
+                <img src="/graficas/02_matrices_confusion.png" alt="Matrices de confusión" />
+                <figcaption>Matrices de confusión</figcaption>
+              </figure>
+              <figure class="chart-card">
+                <img src="/graficas/03_tiempo_entrenamiento.png" alt="Tiempo de entrenamiento" />
+                <figcaption>Tiempo de entrenamiento</figcaption>
+              </figure>
+              <figure class="chart-card">
+                <img src="/graficas/04_radar_metricas.png" alt="Radar de métricas" />
+                <figcaption>Radar de métricas globales</figcaption>
+              </figure>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       <footer class="footer">
-        <span>Proyecto TFG · Detector de phishing multilingüe</span>
+        <span>Proyecto TFG · Detector de phishing multilingüe · <span id="analysis-counter">0 análisis realizados</span></span>
         <span id="api-status" class="api-status">API: sin comprobar</span>
       </footer>
     </div>
 
     <div id="toast" class="toast hidden"></div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="./app.js"></script>
   </body>
   </html>

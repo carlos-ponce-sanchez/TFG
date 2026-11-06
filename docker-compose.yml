@@ -1,0 +1,12 @@
+services:
+  app:
+    build: .                        # Construye la imagen desde el Dockerfile de esta carpeta
+    ports:
+      - "8000:8000"                 # Puerto host:contenedor — accesible en localhost:8000
+    volumes:
+      - ./data:/app/data            # Los resultados de modelos y datasets persisten en disco
+      - ./graficas:/app/graficas    # Las gráficas generadas persisten en disco
+    # Opcional: activar autenticación API (la interfaz web no envía X-API-Key). Usar con podman-compose.
+    # environment:
+    #   - API_KEYS=clave-secreta-ejemplo
+    restart: unless-stopped         # Reinicia automáticamente si el proceso falla

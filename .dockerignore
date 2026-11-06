@@ -1,0 +1,28 @@
+# Entorno virtual de Python
+.venv/
+
+# Datasets crudos y dataset combinado (no necesarios en tiempo de ejecución)
+CEAS_08.csv
+Enron.csv
+data/emails.csv
+
+# Ejemplos manuales (solo se usan para demos del frontend)
+ejemplos/
+
+# Tests
+tests/
+
+# Documentación en PDF
+*.pdf
+
+# Imagen exportada del contenedor
+tfg_app.tar
+
+# Caché de Python
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+.pytest_cache/
+
+# Control de versiones
+.git/
